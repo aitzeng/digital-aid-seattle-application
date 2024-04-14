@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import DropDown from '../components/DropDown';
+import History from '../components/History';
 import axios from 'axios';
 
 export default function Home() {
@@ -26,14 +27,14 @@ export default function Home() {
     setQuantity(event.target.value)
   }
 
-  const getHistory = async () => {
-    try {
-      const response = await axios.get('/api/history');
-      setData(response.data);
-      console.log(response.data);
-    } catch (error) {
-      console.error('There was an error', error)
-    }
+  const getHistory = () => {
+    axios.get('/api/history')
+    .then((response) => {
+      setData(response.data)
+    })
+    .catch((error) => {
+      console.log("Error", error)
+    })
   }
 
   const submitHandler = (event) => {
@@ -42,14 +43,30 @@ export default function Home() {
     // console.log('lastName:', lastName)
     // console.log('selectedOption:', selectedOption)
     // console.log('quantity:', quantity)
-    getHistory();
+    // console.log('date', new Date())
+    axios.post('/api/history', {
+      firstName: firstName,
+      lastName: lastName,
+      quantity: quantity,
+      type: selectedOption,
+      date: new Date(),
+    })
+      .then((response) => {
+        getHistory();
+      })
+      .catch((error) => {
+        console.log("Error:", error)
+      })
   }
 
+  useEffect(() => {
+    getHistory()
+  }, [])
 
   return (
     <main>
       <h1 className="flex justify-center">Donation Form</h1>
-      <form onSubmit={submitHandler} className="flex justify-center items-center">
+      <form onSubmit={submitHandler} className="flex justify-center">
         <div className="flex flex-col border-2">
           <div className="flex my-5">
             <div className="flex flex-col mx-5">
@@ -75,9 +92,7 @@ export default function Home() {
           </div>
         </div>
       </form>
-      <div className="my-10 flex justify-center">
-        History
-      </div>
+      <History data={data} setData={setData} />
     </main>
   );
 }
