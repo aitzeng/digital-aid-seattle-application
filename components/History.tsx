@@ -14,7 +14,7 @@ export default function History({ data, setData, getHistory }: HistoryProps) {
 
     return (
         <div className="my-5 flex justify-center">
-            <div className="flex flex-col border-2 w-2/5">
+            <div className="flex flex-col border-2 border-gray-500 w-2/5">
                 <h1 className="flex justify-center">History</h1>
                 {data.map((dono) => (
                     <Editor 

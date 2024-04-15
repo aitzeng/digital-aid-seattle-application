@@ -68,7 +68,7 @@ export default function Editor({ editid, editFirst, editLast, editType, editQuan
         (
             editMode ? (
                 // If editMode is true, show the edit form
-                <form className="flex flex-col border-t-2" onSubmit={handleFormSubmit}>
+                <form className="flex flex-col border-t-2 border-gray-500" onSubmit={handleFormSubmit}>
                     <div className="flex items-center" >
                         <div className="mx-3">First Name:</div>
                         <input onChange={firstHandler} className="border-2 my-1" type="text" defaultValue={editFirst} />
@@ -90,7 +90,7 @@ export default function Editor({ editid, editFirst, editLast, editType, editQuan
                 </form>
             ) : (
                     // If editMode is false, display the information
-                    <div className="flex border-t-2 justify-between items-center">
+                    <div className="flex border-t-2 border-gray-500 justify-between items-center">
                         <div className="">
                             <div className="mx-2">Name: {editFirst} {editLast}</div>
                             <div className="mx-2">{editType}: {editQuantity}</div>

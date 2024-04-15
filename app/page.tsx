@@ -65,9 +65,9 @@ export default function Home() {
 
   return (
     <main>
-      <h1 className="flex justify-center">Donation Form</h1>
+      <h1 className="flex justify-center text-xl ">Donation Form</h1>
       <form onSubmit={submitHandler} className="flex justify-center">
-        <div className="flex flex-col border-2">
+        <div className="flex flex-col border-2 border-gray-500">
           <div className="flex my-5">
             <div className="flex flex-col mx-5">
               <label>First Name: </label>
