@@ -38,4 +38,4 @@ The history shows the most recent 5 donations. To have more donations viewable, 
 
 Users are also able to edit donations. In the history section, clicking edit will cause the specified panel to become editable. Users can then change the names/types/quantity. If this was a more realistic application, the history would be tied to the user's account and not be adjustable to everyone.
 
-
+Users also have the option to be more specific with the type of donation in the editable field. I just wanted to showcase the easy drop down menu :D
