@@ -11,7 +11,7 @@ MONGODB_URI=mongodb+srv://aitzeng:SjzNEfuK7OmXpphw@cluster0.mywqza4.mongodb.net/
 Next, ensure the packages have been installed.
 
 npm install
-# or
+or
 yarn install
 
 Finally, run the development server:
