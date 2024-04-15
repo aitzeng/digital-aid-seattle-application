@@ -92,7 +92,7 @@ export default function Home() {
           </div>
         </div>
       </form>
-      <History data={data} setData={setData} />
+      <History data={data} setData={setData} getHistory={getHistory} />
     </main>
   );
 }

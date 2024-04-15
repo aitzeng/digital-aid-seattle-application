@@ -19,3 +19,18 @@ export async function POST(request: Request) {
         return Response.json({ message: 'Error', error }, { status: 500 })
     }
 }
+
+export async function PUT(request: Request) {
+    try {
+        const body = await request.json();
+        const data = await Donations.findOneAndUpdate({_id: body._id}, body);
+
+        if (data) {
+            return Response.json({message: "Donation Updated"}, {status: 201});
+        } else {
+            return Response.json({ message: 'Error putting' }, { status: 404 })
+        }
+    } catch (error) {
+        return Response.json({ message: 'Error', error }, { status: 500 })
+    }
+}
